@@ -1,0 +1,55 @@
+notes
+
+objective: create a character that can move around in VR using the oculus touchpad
+it will be in an environment and it will not be able to walk through solid objects
+
+steps to achieve this outcome
+1) create character that can walk using wasd
+2) figure out how to config different environments (tell difference between when program is running on headset vs on my computer)
+3) add ability for character that can walk using oculus
+4) make environment around them
+
+
+it is 6:43am
+first i shall create a ground, and then give it the properties of having a collider but no rigidbody so that it stays floating
+then i create a rectangular prism to serve as the character. it has rigidbody.
+then i place camera inside the rectangular prism
+
+it is 7:01
+i have added movement to my character by adding a script that transform.Translate()s the character based on Input.GetAxis(), which is the input of keys or whatever u can set it in Project Settings
+
+it is 7:47
+i finally figured out how to search for what i wanted. i found this thing called SystemInfo.deviceType
+very good. i think i can work with that.
+
+8:09
+now i am going to add the gear vr support to my project. i can never remember how to do this.
+i know i have to add my sig file to Assets/Plugins/Android/assets
+
+8:30
+it works! on desktop it says the deviceType is Desktop and on my gearvr it says the deviceType is Handheld
+i wonder if this will be useful to me
+
+11:31
+i decided that i should make mouselook+moveforward/backwards instead of wasd
+because that's what i'm going to have on the vr
+
+i've got moving forwards and backwards going on, but i still have to restrict it to the xz plane
+
+and then i need to rotate the camera freely
+
+sun 6 jan
+6:25
+new task: map forward and backward motion to d-pad and see if it's possible?
+i found someone's mouselook+cameramove script that i might just take, but that's only necessary for desktop. i might be able to just skip that for now and get d-pad working.
+
+18:22
+ok i was able to access the d-pad input. let me tell you it was not easy to dig this up: https://developer.oculus.com/blog/developing-for-the-gear-vr-controller/
+
+18:45
+i added random GameObjects to my scene just to see if i can interact with them
+
+18:49
+the answer is yes i can interact with them cuz that's what colliders are. lol.
+ok i'm committing this. it could be improved but this is a solid start.
+i honestly did not expect to get this far lol
